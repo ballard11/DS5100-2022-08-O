@@ -1,0 +1,5 @@
+setup.py
+HW_package.egg-info/PKG-INFO
+HW_package.egg-info/SOURCES.txt
+HW_package.egg-info/dependency_links.txt
+HW_package.egg-info/top_level.txt

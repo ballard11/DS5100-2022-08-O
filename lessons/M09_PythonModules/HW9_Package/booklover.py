@@ -1,5 +1,7 @@
 import unittest
 import pandas as pd
+import numpy as np
+
 
 class BookLover:
     """this is the BookLover class"""
