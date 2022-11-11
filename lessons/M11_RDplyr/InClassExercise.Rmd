@@ -1,0 +1,74 @@
+---
+title: "InClass_Participation"
+output: html_document
+date: '2022-11-11'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+scores <- 
+  tibble(
+    name = c("mike", "carol", "greg", "marcia", "peter", "jan", "bobby", "cindy", "alice"),
+    school = c("south", "south", "south", "south", "north", "north", "north", "south", "south"),
+    teacher = c("johnson", "johnson", "johnson", "johnson",  "smith", "smith", "smith", "perry", "perry"),
+    sex = c("male", "female", "male", "female", "male", "female", "male", "female", "female"),
+    math_score = c(4, 3, 2, 4, 3, 4, 5, 4, 5),
+    reading_score = c(1, 5, 2, 4, 5, 4, 1, 5, 4)
+)
+
+```
+
+
+
+```{r cars}
+
+scores %>% 
+  slice(1:3)
+
+
+```
+
+```{r cars}
+scores_small <- scores %>% 
+  slice(1:3)
+
+
+```
+
+
+
+
+```{r cars}
+
+scores_small
+
+```
+
+
+
+
+```{r cars}
+
+scores %>% 
+  arrange(desc(math_score))
+
+```
+
+
+
+
+
+```{r cars}
+scores %>% 
+  arrange(name)
+```
+
+
+```{r}
+scores %>%
+    arrange(school, teacher, sex, math_score, reading_score)
+```
+
