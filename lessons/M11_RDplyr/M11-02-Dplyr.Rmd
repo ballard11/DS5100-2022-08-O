@@ -1,7 +1,8 @@
 ---
-editor_options: 
-  markdown: 
+editor_options:
+  markdown:
     wrap: sentence
+output: pdf_document
 ---
 
 # The `dplyr` package

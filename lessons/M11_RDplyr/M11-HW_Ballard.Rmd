@@ -15,9 +15,9 @@ output: pdf_document
 
 # Student Info
 
-    Name:  
-    Net ID:
-    File GitHub URL:
+    Name: Ballard 
+    Net ID: bkq5nt
+    File GitHub URL:https://github.com/ballard11/DS5100-2022-08-O/tree/main/lessons/M11_RDplyr
 
 # Instructions
 
@@ -66,7 +66,7 @@ value directly.
 Get the dataset.
 
 ```{r}
-# CODE HERE
+# Read Dataset
 
 df<-read.csv('https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data')
 ```
@@ -79,8 +79,10 @@ Print the number of rows in the dataset.
 
 ```{r}
 
-# CODE HERE
 df %>% count()
+
+#Or
+dim(df)
 
 
 ```
@@ -93,7 +95,7 @@ The rightmost column is the number of rings. Print the maximum number of
 rings
 
 ```{r}
-# CODE HERE
+# max rings is 29
 df %>%
   summarise(max = max(X15, na.rm=TRUE))
 
@@ -110,11 +112,10 @@ Apply the `filter()` function from tidyverse to select only rows where
 gender is infant, and print the number of records.
 
 ```{r}
-# CODE HERE
+# filter to rows with Infant
 
 df %>% 
   filter(M == 'I')
-
 
 
 ```
@@ -127,7 +128,7 @@ Apply the `filter()` function from `tidyverse` to select only rows where
 gender is infant or male, and print the number of records.
 
 ```{r}
-# CODE HERE
+# filter to rows with Infant or Male
 
 df %>% 
   filter(M == 'I' | M == 'M')
@@ -145,13 +146,11 @@ of each gender are present.
 Print the result.
 
 ```{r}
-# CODE HERE
+# call table function
 
+table(df$M)
 
-df %>% 
-  filter(M == 'I' | M == 'M')
-
-
+#Base R
 ```
 
 ## Task 6
@@ -166,7 +165,13 @@ Requirements: use the `%>%` operator to chain commands, and the
 `group_by()` and `summarize()` functions.
 
 ```{r}
-# CODE HERE
+# group by and summarize
+df2 <- df %>%
+    group_by(M) %>%
+    summarize(X0.455_Mean = mean(X0.455, na.rm = TRUE))
+
+
+print(df2)
 ```
 
 # Task 7
@@ -179,5 +184,14 @@ males.
 Requirements: use the `%>%` operator to chain commands.
 
 ```{r}
-# CODE HERE
+# group by and summarize
+
+df3 <- df %>%
+    group_by(M) %>%
+    filter(M=='M') %>%
+    summarize(X0.455_Max = max(X0.455, na.rm = TRUE))
+
+#Max shell length for males
+print(df3)
+
 ```
