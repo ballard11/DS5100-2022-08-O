@@ -78,7 +78,11 @@ df<-read.csv('https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/
 Print the number of rows in the dataset.
 
 ```{r}
+
 # CODE HERE
+df %>% count()
+
+
 ```
 
 ## Task 2
@@ -90,6 +94,9 @@ rings
 
 ```{r}
 # CODE HERE
+df %>%
+  summarise(max = max(X15, na.rm=TRUE))
+
 ```
 
 ## Task 3
@@ -104,6 +111,12 @@ gender is infant, and print the number of records.
 
 ```{r}
 # CODE HERE
+
+df %>% 
+  filter(M == 'I')
+
+
+
 ```
 
 ## Task 4
@@ -115,6 +128,11 @@ gender is infant or male, and print the number of records.
 
 ```{r}
 # CODE HERE
+
+df %>% 
+  filter(M == 'I' | M == 'M')
+
+
 ```
 
 ## Task 5
@@ -128,6 +146,12 @@ Print the result.
 
 ```{r}
 # CODE HERE
+
+
+df %>% 
+  filter(M == 'I' | M == 'M')
+
+
 ```
 
 ## Task 6
