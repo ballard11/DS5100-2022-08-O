@@ -3,8 +3,10 @@ editor_options:
   markdown:
     wrap: 72
 output:
+  pdf_document: default
   html_document:
     df_print: paged
+  title: HW11_Ballard
 ---
 
 # Metadata
@@ -80,6 +82,7 @@ df<-read.csv('https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/
 Print the number of rows in the dataset.
 
 ```{r}
+library(dplyr)
 
 df %>% count()
 
@@ -116,10 +119,10 @@ gender is infant, and print the number of records.
 ```{r}
 # filter to rows with Infant
 
-df %>% 
+task3<-df %>% 
   filter(M == 'I')
 
-
+head(task3)
 ```
 
 ## Task 4
@@ -132,9 +135,10 @@ gender is infant or male, and print the number of records.
 ```{r}
 # filter to rows with Infant or Male
 
-df %>% 
+task4 <- df %>% 
   filter(M == 'I' | M == 'M')
 
+head(task4)
 
 ```
 
