@@ -11,11 +11,15 @@ output: pdf_document
 
 The `dplyr` package was developed by Hadley Wickham of RStudio and is an optimized and distilled version of his `plyr` package.
 
-> `plyr` is an attempt to organize much of the functionality of the `*apply` family of methods in R. Some of these methods are superseded by dplyr and plyr, but [they remain useful](https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family).
+> `plyr` is an attempt to organize much of the functionality of the `*apply` family of methods in R.
+> Some of these methods are superseded by dplyr and plyr, but [they remain useful](https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family).
 
 The `dplyr` package does not provide any "new" functionality to R per se, in the sense that everything `dplyr` does could already be done with base R, but it *greatly* simplifies existing functionality in R.
 
-One important contribution of the `dplyr` package is that it provides a "grammar" (in particular, verbs) for data manipulation and for operating on data frames. With this grammar, you can sensibly communicate what it is that you are doing to a data frame that other people can understand (assuming they also know the grammar). This is useful because it provides an abstraction for data manipulation that previously did not exist. Another useful contribution is that the `dplyr` functions are **very** fast, as many key operations are coded in C++.
+One important contribution of the `dplyr` package is that it provides a "grammar" (in particular, verbs) for data manipulation and for operating on data frames.
+With this grammar, you can sensibly communicate what it is that you are doing to a data frame that other people can understand (assuming they also know the grammar).
+This is useful because it provides an abstraction for data manipulation that previously did not exist.
+Another useful contribution is that the `dplyr` functions are **very** fast, as many key operations are coded in C++.
 
 ## `dplyr` Grammar
 
@@ -35,11 +39,14 @@ Some of the key "verbs" provided by the `dplyr` package are
 
 -   `%>%`: the "pipe" operator is used to connect multiple verb actions together into a pipeline
 
-The `dplyr` package as a number of its own data types that it takes advantage of. For example, there is a handy `print` method that prevents you from printing a lot of data to the console. Most of the time, these additional data types are transparent to the user and do not need to be worried about.
+The `dplyr` package as a number of its own data types that it takes advantage of.
+For example, there is a handy `print` method that prevents you from printing a lot of data to the console.
+Most of the time, these additional data types are transparent to the user and do not need to be worried about.
 
 ## Common `dplyr` Function Properties
 
-All of the functions that we will discuss in this Chapter will have a few common characteristics. In particular,
+All of the functions that we will discuss in this Chapter will have a few common characteristics.
+In particular,
 
 1.  The first argument is a data frame.
 
@@ -47,11 +54,14 @@ All of the functions that we will discuss in this Chapter will have a few common
 
 3.  The return result of a function is a new data frame.
 
-4.  Data frames must be properly formatted and annotated for this to all be useful. In particular, the data must be [tidy](http://www.jstatsoft.org/v59/i10/paper). In short, there should be one observation per row, and each column should represent a feature or characteristic of that observation.
+4.  Data frames must be properly formatted and annotated for this to all be useful.
+    In particular, the data must be [tidy](http://www.jstatsoft.org/v59/i10/paper).
+    In short, there should be one observation per row, and each column should represent a feature or characteristic of that observation.
 
 ## Installing the `dplyr` package
 
-The `dplyr` package can be installed from CRAN or from GitHub using the `devtools` package and the `install_github()` function. The GitHub repository will usually contain the latest updates to the package and the development version.
+The `dplyr` package can be installed from CRAN or from GitHub using the `devtools` package and the `install_github()` function.
+The GitHub repository will usually contain the latest updates to the package and the development version.
 
 To install from CRAN, just run
 
@@ -71,7 +81,8 @@ After installing the package it is important that you load it into your R sessio
 library(dplyr)
 ```
 
-You may get some warnings when the package is loaded because there are functions in the `dplyr` package that have the same name as functions in other packages. For now you can ignore the warnings.
+You may get some warnings when the package is loaded because there are functions in the `dplyr` package that have the same name as functions in other packages.
+For now you can ignore the warnings.
 
 ## Getting a dataset
 
@@ -122,7 +133,8 @@ chicago %>%
 
 Note the use of `:` inside the `select()` --- you can use it to specify a range of variable names.
 
-You can also *omit* variables using the `select()` function by using **the negative sign**. With `select()` you can do
+You can also *omit* variables using the `select()` function by using **the negative sign**.
+With `select()` you can do
 
 ```{r,eval=FALSE}
 select(chicago, -(city:dptp))
@@ -316,7 +328,8 @@ So **the stratum is the year**, which we can derive from the `date` variable.
 
 The general operation here is a combination of **splitting** a tabel into separate pieces defined by a variable or group of variables (`group_by()`), and then **applying** a summary function across those subsets (`summarize()`), then **combining** back into another table.
 
-> This pattern is called **split, apply, and combine**. It is a fundamental pattern in data processing.
+> This pattern is called **split, apply, and combine**.
+> It is a fundamental pattern in data processing.
 
 First, we can create a `year` variable using `as.POSIXlt()`.
 
@@ -351,7 +364,8 @@ First, we can create a categorical variable of `pm25` divided into quantiles.
 qq <- quantile(chicago$pm25, seq(0, 1, 0.2), na.rm = TRUE)
 ```
 
-Then can group the data frame by the `pm25.quint` variable. and compute the mean of `o3` and `no2` within quantiles of `pm25`.
+Then can group the data frame by the `pm25.quint` variable.
+and compute the mean of `o3` and `no2` within quantiles of `pm25`.
 
 ```{r}
 chicago %>%
@@ -387,6 +401,8 @@ It allows us to perform a number of complex operations in just a few lines of co
 
 In particular, we can often conduct the beginnings of an exploratory analysis with the powerful combination of `group_by()` and `summarize()`.
 
-Once you learn the `dplyr` grammar there are a few additional benefits - `dplyr` can work with other data frame "back ends" such as SQL databases. There is an SQL interface for relational databases via the DBI package - `dplyr` can be integrated with the `data.table` package for large fast tables
+Once you learn the `dplyr` grammar there are a few additional benefits - `dplyr` can work with other data frame "back ends" such as SQL databases.
+There is an SQL interface for relational databases via the DBI package - `dplyr` can be integrated with the `data.table` package for large fast tables
 
-The `dplyr` package is handy way to both simplify and speed up your data frame management code. It's rare that you get such a combination at the same time!
+The `dplyr` package is handy way to both simplify and speed up your data frame management code.
+It's rare that you get such a combination at the same time!

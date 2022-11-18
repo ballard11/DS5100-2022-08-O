@@ -32,7 +32,7 @@ the package, so you can be confident in learning more as you need to.
 As with Dplyr, GGPlot2 is a an entirely new system that **supplants** the older
 graph functions that are built into R.
 
-An just as with Dplyr, it is founded on a principled analysis of its domain and
+And just as with Dplyr, it is founded on a principled analysis of its domain and
 approaches code design through developing a basic **grammar** which can then be
 expressed in R.
 
@@ -40,22 +40,24 @@ In effect, Dplyr is built on a **grammar of data** by defining a set of
 **verbs** that can be used to build phrases that are put together into larger
 constructs.
 
-These verbs correspond to a **process** or data transformation.
+These verbs correspond to a **process** of data transformation.
 
 GGPlot2 is built on a **grammar of graphics** that defines a set of **nouns**
 that correspond to **the architecture of a graphic** (aka plot).
 
-The phrase grammar of graphics comes from the book by that name written by
-statistician and computer scientist **Leland Wilkinson** in 1999 and later
-revised:
+The phrase "grammar of graphics" actually comes from the book by that name
+written by statistician and computer scientist **Leland Wilkinson** in 1999 and
+later revised:
 
 [![The Second
 Edition](images/paste-39DF579F.png)](https://www.google.com/books/edition/The_Grammar_of_Graphics/YGgUswEACAAJ?hl=en)
 
-> It's worth reading if you want to get a solid grounding in visualization,
-> which belongs to the **design area of data science**.
+It's worth reading if you want to get a solid grounding in visualization, which
+belongs to the **design area of data science**.
 
-Wilkinson takes an **object-oriented approach** to visualization and formalized
+## A Layered Model
+
+Wilkinson takes an **object-oriented approach** to visualization and formalizes
 two main **principles**:
 
 I.  **Graphics** are built out of distinct ***layers*** of grammatical
@@ -79,7 +81,8 @@ Wickham takes this idea and develops it into this:
 
 ![](images/paste-D2214B2A.png)
 
-| ~[Source](https://blog.gramener.com/grammar-of-graphics-data-stories/) (see also [ScienceCraft](https://www.science-craft.com/2014/07/08/introducing-the-grammar-of-graphics-plotting-concept/)).~
+[Source](https://blog.gramener.com/grammar-of-graphics-data-stories/) (see also
+[ScienceCraft](https://www.science-craft.com/2014/07/08/introducing-the-grammar-of-graphics-plotting-concept/)).
 
 You can see that everything starts with **data.**
 
@@ -117,11 +120,10 @@ grammar is implemented:
 ```{r}
 iris %>%
 ggplot(
-  
   mapping = aes(
     x = Sepal.Length, 
-    y = Sepal.Width)) + 
-  
+    y = Sepal.Width)
+  ) + 
   geom_point(size=3, aes(color=Species))
 ```
 
@@ -210,7 +212,7 @@ Anyway, the **general structure** of a ggplot statement is the following:
 You will notice the use of the `+` operator to connect ggplot functions together
 to produce a final product. Theses are not quite the same as pipes `%>%`.
 
-The difference is that pipe feed data from one function to another, whereas the
+The difference is that pipes feed data from one function to another, whereas the
 `+` operation combines elements to produce an increasingly developed
 visualization.
 
@@ -262,7 +264,7 @@ gg + geom_point(aes(
 
 ## Add Title, X and Y axis labels with `labs()`
 
-```{r}d}
+```{r}
 gg1 <- gg + geom_point(aes(color=color))
 gg2 <- gg1 + labs(title="Diamonds", x="Carat", y="Price") 
 gg2
@@ -436,7 +438,7 @@ gridExtra::grid.arrange(p1, p2, ncol=2)
 ## Change order of legend items
 
 ```{r}
-df$newLegendColumn <- factor(df$legendcolumn, levels=c(new_order_of_legend_items), ordered = TRUE) 
+#df$newLegendColumn <- factor(df$legendcolumn, levels=c(new_order_of_legend_items), ordered = TRUE) 
 ```
 
 Create a new factor variable used in the legend, ordered as you need. Then use
