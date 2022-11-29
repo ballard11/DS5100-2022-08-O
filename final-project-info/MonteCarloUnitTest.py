@@ -9,38 +9,26 @@ class MonteCarloTest(unittest.TestCase):
     def test_1_Die_create_die(self):    
         sixsided = [1,2,3,4,5,6]
         testdie1 = Die(sixsided)
-        testdie2 = Die(sixsided)
-        testdie3 = Die(sixsided)
-        testdie4 = Die(sixsided)
-        testdie5 = Die(sixsided)
-        testdie6 = Die(sixsided)
-        testdielist = [testdie1,testdie2,testdie3,testdie4]
-        
-        
-        testgame = Game(testdielist)
-        actualresults = testgame.show("wide")
-    
-    
-        #pandas unit test
-        #pandas built in function
-        #grab columns, convert to list, 
-        
-        expected = pd.DataFrame({
-            'Face':range(1,self.n_faces+1),
-            'Weight':self.weights})
-        
-        self.assertEqual(actualresults, expected)
-        
         
     def test_2_Die_change_weight(self):
+        firstDie = Die(["1","2","3",4,5,6,7,8,9])
+        firstDie.change_weight(9,"6")        
         
-    def test_3_Die_change_weight(self):
-
     def test_4_Die_roll_die(self):
-    
+        firstDie = Die(["1","2","3",4,5,6,7,8,9])
+        firstDie.roll_die2(4)
+        
     def test_5_Die_show(self):           
+        firstDie = Die(["1","2","3",4,5,6,7,8,9])
+        firstDie.show("narrow")
+        firstDie.show("wide")
     
     def test_6_Game_play(self):
+        first = Die(["1","2","3",4])
+        second = Die([1,2,3,4])
+        third = Die([1,2,3,4])
+        testGame=Game([first,second,third])
+        testGame.play2(3)
     
     def test_7_Game_show(self):
     

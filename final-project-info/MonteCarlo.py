@@ -3,7 +3,7 @@ import pandas as pd
 import random as rm
 
 class Die():
-    """"" This is class represents a Die """
+    """"" This class represents a Die """
 
     def __init__(self, faces):
         """"" This is the Create_Die docstring"""
@@ -64,10 +64,10 @@ class Die():
         
         
 class Game(Die): 
-    
+    """"" This class takes Dies and simulates a game."""
+
     def __init__(self,die_list):
-        """Game class docstring: A game consists of rolling of one or more dice of the same kind one or more times.
-        """      
+        """Game class docstring: A game consists of rolling of one or more dice of the same kind one or more times."""      
         self.die_list=die_list       
         self.results = pd.DataFrame()
                         
@@ -81,6 +81,8 @@ class Game(Die):
         
     
     def show(self, wide_or_narrow = "wide"):
+        """"" This method shows the state of the Die."""
+
        # A method to show the user the die’s current set of faces and weights (since the latter can be changed). (X)
        # Returns the dataframe created in the initializer but possibly updated by the weight changing method. (X)
     
