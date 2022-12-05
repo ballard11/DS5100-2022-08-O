@@ -124,3 +124,7 @@ class Analyzer(Game):
     def get_combo(self):
         self.combos = self.face_counts.groupby(list(self.face_counts), as_index = False).value_counts()
         
+        
+        
+if __name__ == '__main__':
+    unittest.main()
