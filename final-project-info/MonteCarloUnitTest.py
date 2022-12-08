@@ -27,6 +27,7 @@ class MonteCarloTest(unittest.TestCase):
         self.assertTrue(df1, df2)     
         
     def test_4_Die_roll_die(self):
+        first = Die(["1","2","3",4,5,6,7,8,9,10,11,12])
         df1=len(first.roll_die(3))
         df2=3
         self.assertTrue(df1, df2)     
@@ -40,18 +41,17 @@ class MonteCarloTest(unittest.TestCase):
         df2=6
         self.assertTrue(df1, df2)     
         
-        
     def test_6_Game_play(self):
         first = Die(["1","2","3",4])
         second = Die([1,2,3,4])
         third = Die([1,2,3,4])
         testGame=Game([first,second,third])
-        testgame.play(1000)
-        df1=len(testgame.my_die)
+        testGame.play(1000)
+        df1=len(testGame.my_die)
         df2=1000
         self.assertTrue(df1, df2)     
 
-        def test_7_Game_show(self):
+    def test_7_Game_show(self):
         first = Die(["1","2","3",4,5,6,7,8,9,10,11,12])
         second = Die([1,2,3,4,5,6,7,8,9,10,11,12])
         third = Die([1,2,3,4,5,6,7,8,9,10,11,12])
@@ -69,8 +69,9 @@ class MonteCarloTest(unittest.TestCase):
         testGame=Game([first,second,third])
         testGame.play(10)
         testGame.get_results("wide")
-        analysis = Analyzer(testgame)
-        len(analysis.get_face_count())
+        analysis = Analyzer(testGame)
+        df1=len(analysis.get_face_count())
+        df2=1000
         self.assertTrue(df1, df2)     
     
     def test_9_Analyzer_get_jackpot_Analyzer(self):
@@ -80,7 +81,7 @@ class MonteCarloTest(unittest.TestCase):
         testGame=Game([first,second,third])
         testGame.play(10)
         testGame.get_results("wide")
-        analysis = Analyzer(testgame)
+        analysis = Analyzer(testGame)
         df1=len(analysis.get_combo())
         df2=21
         self.assertTrue(df1, df2)         
@@ -92,7 +93,7 @@ class MonteCarloTest(unittest.TestCase):
         testGame=Game([first,second,third])
         testGame.play(10)
         testGame.get_results("wide")
-        analysis = Analyzer(testgame)
+        analysis = Analyzer(testGame)
         df1=len(analysis.get_combo())
         df2=21
         self.assertTrue(df1, df2)    

@@ -56,7 +56,7 @@ class Die():
             self.my_die.loc[self.my_die['Face'] == f_change , "Weight" ] = weight
 
             #I'm finding 'H/T' and changing the weight.
-            print(self.my_die)
+            #print(self.my_die)
         else:
             print("Value is not on the Die.  (i.e. User provided value is not in the array.)")
             #Raise an Error instead.
