@@ -204,10 +204,5 @@ class Analyzer(Game)
  |  __weakref__
  |      list of weak references to the object (if defined)
 
-For each method:
 
-List and describe all parameters (with data types and defaults)
-List and describe return values, if any
-
-Do not describe private methods and attributes
 
