@@ -5,7 +5,7 @@ import random as rm
 class Die():
 
     def __init__(self, faces):
-        """"" This is the Create_Die docstring
+        """ This is the Create_Die docstring
         
         Attributes
         ==========
@@ -81,6 +81,7 @@ class Die():
             raise ValueError("Arrgument must be either \"narrow\" or \"wide\"")
     
         print(self.my_die)
+        
 class Game(Die): 
     
     def __init__(self,die_list):
@@ -128,7 +129,7 @@ class Game(Die):
             raise ValueError("Arrgument must be either \"narrow\" or \"wide\"")
     
     
-    class Analyzer(Game): 
+class Analyzer(Game): 
     """An analyzer takes the results of a single game and computes various descriptive statistical properties about it.
             
         Methods
@@ -139,20 +140,16 @@ class Game(Die):
             A combo method to compute the distinct combinations of faces rolled, along with their counts.
         get_jackpot:
             A jackpot method to compute how many times the game resulted in all faces being identical.
-
-        """
+    """
     
     def __init__(self, game):
         self.game_results = game.get_results()
         self.number_of_dice = len(list(self.game_results))
- 
-        self.face_count = pd.DataFrame()
         self.jackpot = 0
+        self.face_count = pd.DataFrame()
         self.combos = {}
         self.temp_df = pd.DataFrame()
-    
         number_of_dice = 0
-
 
     def get_face_count(self):
         """A face counts per roll, i.e. the number of times a given face appeared in each roll. 
