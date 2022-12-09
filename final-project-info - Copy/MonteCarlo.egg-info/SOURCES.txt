@@ -1,5 +1,0 @@
-setup.py
-MonteCarlo.egg-info/PKG-INFO
-MonteCarlo.egg-info/SOURCES.txt
-MonteCarlo.egg-info/dependency_links.txt
-MonteCarlo.egg-info/top_level.txt
