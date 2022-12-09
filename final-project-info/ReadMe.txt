@@ -1,6 +1,5 @@
 This is the Read Me file for Ben's Final Project in DS 5100.  This project ties together key concepts learned in the course for programming in Python.
 
-
 Name: Ballard's Monte Carlo Simulator).
 
 Synopsis: The project utilizes features 3 classes acting as a Monte Carlo simulation.
@@ -27,7 +26,6 @@ Playing games:
    testdie.show()
 
 which will yield the results of the dice game.
-
 
 Analyzing games:
 
