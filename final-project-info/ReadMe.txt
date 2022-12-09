@@ -11,15 +11,32 @@ To install run !pip install -e.
 
 Importing: 
 
-To import the packages call import MonteCarlo
+To import the packages call:
+    from MonteCarlo import Die, Game, Analyzer
 
 Creating dice objects:
 
-
+To create a die run the following code:
+    sixsided = [1,2,3,4,5,6]
+    testdie = Die(sixsided)
 
 Playing games:
+   Then you can run the following code:
+   
+   testdie.roll_die(5)
+   testdie.show()
+
+which will yield the results of the dice game.
+
 
 Analyzing games:
+
+The analyzer class contains methods to analyze the results of the game played with the instantiated die.
+
+These methods contain:
+a method that counts the total face counts.
+A method to compute how many times the game resulted in all faces being identical.
+A method to compute the distinct combinations of faces rolled, along with their counts.
 
 API description:
 
